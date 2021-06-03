@@ -22,6 +22,15 @@ export function FormAddImage({ closeModal }: FormAddImageProps): JSX.Element {
     },
     title: {
       // TODO REQUIRED, MIN AND MAX LENGTH VALIDATIONS
+      required: 'Título obrigatório',
+      minLength: {
+        value: 2,
+        message: 'Mínimo de 2 caracteres'
+      },
+      maxLength: {
+        value: 20,
+        message: 'Máximo de 20 caracteres'
+      }
     },
     description: {
       // TODO REQUIRED, MAX LENGTH VALIDATIONS
@@ -72,7 +81,10 @@ export function FormAddImage({ closeModal }: FormAddImageProps): JSX.Element {
         />
 
         <TextInput
+          name="title"
           placeholder="Título da imagem..."
+          register={["title", formValidations.title]}
+          error={{ type: "required", message:"Título obrigatório" }}
           // TODO SEND TITLE ERRORS
           // TODO REGISTER TITLE INPUT WITH VALIDATIONS
         />

@@ -19,12 +19,14 @@ export default function Home(): JSX.Element {
   } = useInfiniteQuery(
     'images',
     // TODO AXIOS REQUEST WITH PARAM
-    ,
+    
     // TODO GET AND RETURN NEXT PAGE PARAM
   );
 
   const formattedData = useMemo(() => {
     // TODO FORMAT AND FLAT DATA ARRAY
+
+    return [];
   }, [data]);
 
   // TODO RENDER LOADING SCREEN
