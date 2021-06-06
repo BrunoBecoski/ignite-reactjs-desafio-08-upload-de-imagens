@@ -47,14 +47,22 @@ export default function Home(): JSX.Element {
     
     const formattedData = useMemo(() => {
       // TODO FORMAT AND FLAT DATA ARRAY
-
-      console.log(data.pages[0].data)
-    return [];
+    if(data) {
+      return data.pages[0].data;
+    } else {
+      return []
+    }
   }, [data]);
 
   // TODO RENDER LOADING SCREEN
-
+  if(isLoading) {
+    return <Loading />
+  }
+  
   // TODO RENDER ERROR SCREEN
+  if(isError) {
+    return <Error />
+  }
 
   return (
     <>
